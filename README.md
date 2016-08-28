@@ -21,6 +21,14 @@ Download automated build from public Docker Hub Registry: docker pull kdelfour/c
 You can add a workspace as a volume directory with the argument *-v /your-path/workspace/:/workspace/* like this :
 
     docker run -it -d -p 80:80 -v /your-path/workspace/:/workspace/ kdelfour/cloud9-docker
+
+You can also add a test configuration file with the argument *-v /your-path/your-config-file:/cloud9/configs/test-config.js* like this :
+
+    docker run -it -d -p 80:80 -v /your-path/your-config-file:/cloud9/configs/test-config.js kdelfour/cloud9-docker
+
+Or add a test workspace config file with the argument *-v /your-path/your-workspace-config:/cloud9/configs/client-workspace-test.js* like this :
+
+    docker run -it -d -p 80:80 -v /your-path/your-workspace-config:/cloud9/configs/client-workspace-test.js kdelfour/cloud9-docker
     
 ## Build and run with custom config directory
 
