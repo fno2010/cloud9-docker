@@ -3,8 +3,8 @@
 mkdir -p plugins
 mkdir -p workspace
 
-sudo docker run -d -p 80:80 \
-    -v test-test-config.js:/cloud9/configs/test-config.js \
-    -v client-workspace-test.js:/cloud9/configs/client-workspace-test.js \
-    -v plugins/:/root/.c9/dev/plugins/ \
-    -v workspace/:/workspace/ $USER/cloud9-docker:latest
+sudo docker run -d -p 9000:80 \
+    -v $(pwd)/conf/test-config.js:/cloud9/configs/test-config.js \
+    -v $(pwd)/conf/client-workspace-test.js:/cloud9/configs/client-workspace-test.js \
+    $(for i in $(ls plugins); do echo "-v \$(pwd)/plugins/$i:/cloud9/plugins/$i"; done) \
+    -v $(pwd)/workspace/:/workspace/ $USER/cloud9-docker:latest
