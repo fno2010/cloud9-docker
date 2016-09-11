@@ -49,6 +49,10 @@ module.exports.makeLocal = function(config, options) {
       options: options
     },
     {
+      packagePath: "plugins/snlab.devopen.newresource/progress",
+      options: options
+    },
+    {
       packagePath: "plugins/snlab.devopen.controller/management",
       staticPrefix: options.staticPrefix + "/plugins/snlab.devopen.controller"
     }
