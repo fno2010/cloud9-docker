@@ -29,6 +29,12 @@ module.exports = function(options) {
 
 module.exports.makeLocal = function(config, options) {
 
+  // Add deploy runner
+  var extRunners = readRunners(__dirname + "/../plugins/snlab.devopen.controller", "runners");
+  for (var name in extRunners) {
+    options.runners[name] = extRunners[name];
+  }
+
   // Add local modules
   var includes = [
     /*
