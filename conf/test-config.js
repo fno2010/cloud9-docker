@@ -10,7 +10,8 @@ module.exports = function(options, optimist) {
     // {
     //   packagePath: "./plugin.test/test"
     // },
-    "./snlab.devopen.server/managerd"
+    "./snlab.devopen.server/managerd",
+    "./snlab.devopen.topoeditor/static"
   ];
 
   whitelist = {
