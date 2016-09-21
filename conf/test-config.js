@@ -21,7 +21,8 @@ module.exports = function(options, optimist) {
      */
     // "plugin.test": true
     "snlab.devopen.newresource": true,
-    "snlab.devopen.controller": true
+    "snlab.devopen.controller": true,
+    "snlab.devopen.topoeditor": true
   };
 
   excludes = {
