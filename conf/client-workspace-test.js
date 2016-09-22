@@ -66,10 +66,6 @@ module.exports.makeLocal = function(config, options) {
       packagePath: "plugins/snlab.devopen.topoeditor/topoeditor",
       staticPrefix: options.staticPrefix + "/plugins/snlab.devopen.topoeditor"
     },
-    {
-      packagePath: "plugins/snlab.devopen.topoeditor/topoeditor2",
-      staticPrefix: options.staticPrefix + "/plugins/snlab.devopen.topoeditor"
-    },
   ].filter(Boolean);
 
   excludes = {
