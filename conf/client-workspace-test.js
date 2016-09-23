@@ -79,6 +79,9 @@ module.exports.makeLocal = function(config, options) {
   };
 
   config = config.concat(includes).filter(function (p) {
+    if (p.packagePath == "plugins/c9.ide.layout.classic/preload") {
+      p.defaultTheme = "flat-light"; // set flat theme as default
+    }
     return !excludes[p] && !excludes[p.packagePath];
   });
 
