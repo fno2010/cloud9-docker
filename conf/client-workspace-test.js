@@ -60,7 +60,8 @@ module.exports.makeLocal = function(config, options) {
     },
     {
       packagePath: "plugins/snlab.devopen.controller/management",
-      staticPrefix: options.staticPrefix + "/plugins/snlab.devopen.controller"
+      staticPrefix: options.staticPrefix + "/plugins/snlab.devopen.controller",
+      mininet: "sudo mininetSim "
     },
     {
       packagePath: "plugins/snlab.devopen.topoeditor/topoeditor",
