@@ -10,7 +10,7 @@ MAINTAINER Kevin Delfour <kevin@delfour.eu>
 RUN apt-get update --quiet
 RUN apt-get install \
     --yes \
-    --no-install-recommands \
+    --no-install-recommends \
     --no-install-suggests \
     autoconf automake ca-certificates libtool net-tools openssh-client \
     build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs tmux
