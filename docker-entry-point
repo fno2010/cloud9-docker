@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# Start the Open Virtual Switch Service
+service openvswitch-switch start
+
+# Start cloud9 with supervisor
+supervisord -c /etc/supervisor/supervisord.conf
+
+exec $@
+
