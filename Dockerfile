@@ -26,7 +26,8 @@ RUN sed -e 's/sudo //g' \
         -e 's/~\//\//g' \
         -e 's/\(apt-get -y install\)/\1 --no-install-recommends --no-install-suggests/g' \
         -i $MININET_INSTALLER && touch /.bashrc
-RUN chmod +x $MININET_INSTALLER && ./$MININET_INSTALLER -nfv
+RUN chmod +x $MININET_INSTALLER
+RUN $MININET_INSTALLER -nfv
 
 # ------------------------------------------------------------------------------
 # Install Node.js
