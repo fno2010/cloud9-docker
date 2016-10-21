@@ -44,12 +44,19 @@ RUN mkdir -p /root/.m2
 RUN curl -L https://raw.githubusercontent.com/opendaylight/odlparent/master/settings.xml > /root/.m2/settings.xml
 RUN curl -L -o m2.zip $(curl -s https://api.github.com/repos/snlab/m2-odl-summit/releases | grep browser_download_url | head -n 1 | cut -d "\"" -f 4)
 RUN unzip m2.zip
-RUN cp -rf m2/* /root/.m2/
+RUN cp -rf .m2/* /root/.m2/
 
 # ------------------------------------------------------------------------------
 # Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup | bash -
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
+
+# Symbolic link for utility
+RUN mkdir -p /root/bin
+WORKDIR /root/bin
+ENV PATH /root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RUN npm i ssh2 scp2 optimist
+RUN ln -s /cloud9/plugins/snlab.devopen.controller/deploy.js /root/bin/deploy
     
 # ------------------------------------------------------------------------------
 # Install Cloud9
@@ -59,6 +66,14 @@ RUN scripts/install-sdk.sh
 
 # Tweak standlone.js conf
 RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js 
+
+# Fix bug https://github.com/npm/npm/issues/9863
+RUN cd $(npm root -g)/npm \
+  && npm install fs-extra \
+  && sed -i -e s/graceful-fs/fs-extra/ -e s/fs\.rename/fs.move/ ./lib/utils/rename.js
+
+# Install extra dependencies for cloud9
+RUN npm i body-parser express ssh2 sqlite3 request
 
 # Add supervisord conf
 ADD conf/cloud9.conf /etc/supervisor/conf.d/
@@ -76,11 +91,13 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # Create a start script to start OpenVSwitch
 COPY docker-entry-point /docker-entry-point
 RUN chmod 755 /docker-entry-point
+COPY mininetSim /root/bin/mininetSim
 
 # ------------------------------------------------------------------------------
 # Expose ports.
 EXPOSE 80
 EXPOSE 3000
+EXPOSE 9001-9100
 
 # ------------------------------------------------------------------------------
 # Start supervisor, define default command.
