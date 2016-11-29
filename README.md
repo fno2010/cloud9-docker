@@ -10,13 +10,32 @@ This repository contains Dockerfile of Cloud9 IDE for Docker's automated build p
 
 ## Install Docker.
 
-Download automated build from public Docker Hub Registry: docker pull kdelfour/cloud9-docker
+Download automated build from public Docker Hub Registry: docker pull fno2010/devopen
 
-(alternatively, you can build an image from Dockerfile: docker build -t="kdelfour/cloud9-docker" github.com/kdelfour/cloud9-docker)
+(alternatively, you can build an image from Dockerfile: docker build -t="fno2010/devopen" github.com/fno2010/cloud9-docker)
+
+## Quick Start
+
+Download plugins into  `plugins` directory:
+
+    pushd plugins/
+    git clone https://github.com/snlab/snlab.devopen.newresource
+    git clone https://github.com/snlab/snlab.devopen.controller
+    git clone https://github.com/snlab/snlab.devopen.server
+    git clone https://github.com/snlab/snlab.devopen.topoeditor
+    git clone https://github.com/snlab/snlab.devopen.favicon
+    git clone https://github.com/snlab/snlab.devopen.layout
+    popd
+
+Start a docker instance:
+
+    ./run.sh
 
 ## Usage
 
-    docker run -it -d -p 80:80 kdelfour/cloud9-docker
+> **WARN:** this part is out-of-date. Please refer to Quick Start.
+
+    docker run -it -d -p 80:80 fno2010/devopen
 
 You can mount several volumes to customize the docker. Exactly, you can mount the following volumes:
 

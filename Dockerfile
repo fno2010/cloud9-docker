@@ -57,7 +57,7 @@ WORKDIR /root/bin
 ENV PATH /root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN npm i ssh2 scp2 optimist
 RUN ln -s /cloud9/plugins/snlab.devopen.controller/deploy.js /root/bin/deploy
-    
+
 # ------------------------------------------------------------------------------
 # Install Cloud9
 RUN git clone https://github.com/fno2010/core.git -b devopen /cloud9
@@ -65,7 +65,7 @@ WORKDIR /cloud9
 RUN scripts/install-sdk.sh
 
 # Tweak standlone.js conf
-RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js 
+RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js
 
 # Fix bug https://github.com/npm/npm/issues/9863
 RUN cd $(npm root -g)/npm \
