@@ -64,6 +64,7 @@ RUN apt-get update --quiet \
     && cd $(npm root -g)/npm \
     && npm install fs-extra \
     && sed -i -e s/graceful-fs/fs-extra/ -e s/fs\.rename/fs.move/ ./lib/utils/rename.js \
+    && cd /cloud9 \
 `# Install extra dependencies for cloud9` \
     && npm i body-parser express ssh2 sqlite3 request \
 `# ------------------------------------------------------------------------------` \

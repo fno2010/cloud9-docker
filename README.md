@@ -1,14 +1,14 @@
-Cloud9 v3 Dockerfile
-=============
+DevOpen Docker Repo
+===================
 
-This repository contains Dockerfile of Cloud9 IDE for Docker's automated build published to the public Docker Hub Registry.
+This repository contains Dockerfile of DevOpen IDE for Docker's automated build published to the public Docker Hub Registry.
 
 # Base Docker Image
 [kdelfour/supervisor-docker](https://registry.hub.docker.com/u/kdelfour/supervisor-docker/)
 
 # Installation
 
-## Install Docker.
+## Install Docker
 
 Download automated build from public Docker Hub Registry: docker pull fno2010/devopen
 
@@ -16,7 +16,7 @@ Download automated build from public Docker Hub Registry: docker pull fno2010/de
 
 ## Quick Start
 
-Download plugins into  `plugins` directory:
+Download plugins into `plugins` directory:
 
     pushd plugins/
     git clone https://github.com/snlab/snlab.devopen.newresource
@@ -48,7 +48,7 @@ You can mount several volumes to customize the docker. Exactly, you can mount th
 
 Get the latest version from github
 
-    git clone https://github.com/kdelfour/cloud9-docker
+    git clone https://github.com/fno2010/cloud9-docker
     cd cloud9-docker/
 
 Build it
@@ -64,3 +64,7 @@ It will create a directory named `workspace` under the current path and mount it
 If you want to add your own plugins, you can easily copy your plugin directories into the `plugins` directory under the repo top path. If you want to add your own configuration files, you can copy `test-config.js` and `client-workspace-test.js` into `conf` directory under the repo top path and modify the content.
 
 Enjoy !!
+
+## Acknowledgement
+
+This repo is forked from [kdelfour/cloud9-docker](https://github.com/kdelfour/cloud9-docker).
