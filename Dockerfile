@@ -36,7 +36,7 @@ RUN apt-get update --quiet \
     && tar -zxf jdk-8u101-linux-x64.tar.gz -C /opt/jdk \
     && update-alternatives --install /usr/bin/java java /opt/jdk/jdk1.8.0_101/bin/java 100 \
     && update-alternatives --install /usr/bin/javac javac /opt/jdk/jdk1.8.0_101/bin/javac 100 \
-    && curl -LO http://mirror.bit.edu.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz \
+    && curl -LO http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz \
     && tar -zxf apache-maven-3.3.9-bin.tar.gz -C /opt \
     && ln -s /opt/apache-maven-3.3.9/bin/mvn /usr/bin/mvn \
     && mkdir -p /root/.m2 \
