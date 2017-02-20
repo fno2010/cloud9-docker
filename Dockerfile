@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 # Pull base image.
 FROM kdelfour/supervisor-docker
-MAINTAINER Kevin Delfour <kevin@delfour.eu>
+MAINTAINER Jensen Zhang <jingxuan.n.zhang@gmail.com>
 
 ENV MININET_REPO https://github.com/mininet/mininet
 ENV MININET_INSTALLER ./mininet/util/install.sh
